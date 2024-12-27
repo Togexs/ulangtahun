@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday!</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to right, #ffccd5, #d4a5a5); /* Background pastel */
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      overflow-y: auto; /* Added scroll functionality */
+    }
+    .container {
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 15px;
+      width: 80%;
+      max-width: 700px;
+      position: relative;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      height: auto;
+      max-height: 80vh; /* Scrollable area */
+      overflow-y: auto; /* Ensure scrolling inside container */
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #ff6f61; /* Soft red */
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    #info {
+      font-size: 1.2rem;
+      color: #6f4f4f;
+      margin-bottom: 20px;
+    }
+    button {
+      background-color: #ffb3b3; /* Soft pink */
+      border: none;
+      padding: 10px 20px;
+      font-size: 1.1rem;
+      border-radius: 10px;
+      margin: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      background-color: #ff8c8c; /* Lighter pink */
+    }
+    #message {
+      display: none;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #4e4e4e;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      margin-top: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .footer {
+      font-size: 0.9rem;
+      margin-top: 30px;
+      color: #6f4f4f;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="header">Happy Birthday, Kak Reiii🥳!</h1>
+    <p id="info">tau gaaa? aku abis nulis buat kak rei lohhhh, mau baca gaaa?</p>
+    <div id="choices" style="display: block;">
+      <button id="yes-btn">Mau dong sayangggg</button>
+      <button id="no-btn">Gamauuu, emohhhh</button>
+    </div>
+    
+    <!-- Pilihan lanjutan muncul jika memilih "Tidak" -->
+    <div id="no-choices" style="display: none;">
+      <p>Kan kan kan kan pasti kak rei milihnya ini😒 gaboleh gaboleh!?, pokoknya kak rei harus bacaaa😠</p>
+      <button id="no-again-btn">Yaudah iya</button>
+      <button id="no-thank-btn">Iya, bawel.</button>
+    </div>
+
+    <!-- Puisi yang akan muncul setelah memilih -->
+    <div id="message" style="display: none;">
+      <span id="line1" style="display: none;">kakk rei, sebenernya aku gabisa bikin puisi yang mewah dan indah kaya orang orang atau puisi yang setiap baitnya memiliki makna,</span><br>
+      <span id="line2" style="display: none;">ini cuma keinginan sederhana aku aja yang tulus dari hati</span><br>
+      <span id="line3" style="display: none;">how i wish, semoga setiap langkah kak rei selalu dipenuhi cahaya,</span><br>
+      <span id="line4" style="display: none;">semoga semua mimpi mimpi tak lagi sebatas angan,</span><br>
+      <span id="line5" style="display: none;">dan semoga aku bisa terus menjadi bagian dari kisah hidup kak rei, yang mungkin ga akan selamanya.</span><br><br>
+
+      <span id="line6" style="display: none;">kak, Hari ini hari spesial kak rei...</span><br>
+      <span id="line7" style="display: none;">di hari ini, aku mau ngucapin makasihhhhh bangettttttt atas semua hal baik yang telah kak rei bawa ke dalam hidup aku.</span><br><br>
+
+      <span id="line8" style="display: none;">Semoga di usia kak rei yang baru membawa kebahagiaan, kesehatan, dan keberhasilan dalam setiap langkah kak rei.</span><br>
+      <span id="line9" style="display: none;">Aku berharap semua impian kak rei bisa tercapai, dan kak rei terus menjadi pribadi yang menginspirasi banyak orang. terutama aku.</span><br><br>
+
+      <span id="line10" style="display: none;">Hari ini bukan cuma sekedar milik kak rei, tapi juga milik semua orang yang merasa bersyukur atas kehadiran kak rei di dunia.</span><br>
+      <span id="line11" style="display: none;">Aku senengggg bangett bisa merayakan hari ini sama kak reiiii dan aku juga seneng bisa kenal kak rei.</span><br><br>
+
+      <span id="line12" style="display: none;">Selamat bertambah usia kakk, semoga hari ini dipenuhi dengan senyuman dan kebahagiaan.</span><br><br>
+
+      <span id="line13" style="display: none;">Aku sayang kak reii, lebih dari kata-kata yang bisa menggambarkan. Selamat ulang tahun, sayang. 🎂❤️</span><br>
+    </div>
+
+    <div class="footer">Made with ❤️ by lael</div>
+  </div>
+
+  <script>
+    const buttonYes = document.getElementById('yes-btn');
+    const buttonNo = document.getElementById('no-btn');
+    const buttonNoAgain = document.getElementById('no-again-btn');
+    const buttonNoThank = document.getElementById('no-thank-btn');
+    const message = document.getElementById('message');
+    const header = document.getElementById('header');
+    const info = document.getElementById('info');
+    const choices = document.getElementById('choices');
+    const noChoices = document.getElementById('no-choices');
+    const lines = [
+      document.getElementById('line1'),
+      document.getElementById('line2'),
+      document.getElementById('line3'),
+      document.getElementById('line4'),
+      document.getElementById('line5'),
+      document.getElementById('line6'),
+      document.getElementById('line7'),
+      document.getElementById('line8'),
+      document.getElementById('line9'),
+      document.getElementById('line10'),
+      document.getElementById('line11'),
+      document.getElementById('line12'),
+      document.getElementById('line13')
+    ];
+
+    let currentLine = 0;
+
+    function showPoem() {
+      if (currentLine < lines.length) {
+        lines[currentLine].style.display = 'inline';
+        currentLine++;
+      }
+    }
+
+    buttonYes.addEventListener('click', () => {
+      choices.style.display = 'none';
+      message.style.display = 'block';
+    });
+
+    buttonNo.addEventListener('click', () => {
+      choices.style.display = 'none';
+      info.style.display = 'none';
+      noChoices.style.display = 'block';
+    });
+
+    buttonNoAgain.addEventListener('click', () => {
+      noChoices.style.display = 'none';
+      message.style.display = 'block';
+      currentLine = 0;
+    });
+
+    buttonNoThank.addEventListener('click', () => {
+      noChoices.style.display = 'none';
+      message.style.display = 'block';
+      currentLine = 0;
+    });
+
+    document.addEventListener('click', () => {
+      showPoem();
+    });
+  </script>
+</body>
+</html>
